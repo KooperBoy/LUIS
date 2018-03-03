@@ -16,19 +16,21 @@ root=Tk()
 helptext=('sorry, i haven\'t coded this in yet!')
 optiontext=('sorry, i haven\'t coded this in yet!')
 class word():
-    def check():
+    def codeit(*args):
         com=a12.get()
-        b=''
-        c=''
-        d=''
-        e=''
-        f=''
-        if com=='hello' or com=='hello luis':
-            response='hello, {}'.format(username)
-        elif com=='makesentence':
-            response=makesentence(1)
+        if com.lower()=='hello':
+            word.check('1x')
+            print('var passed through codeit')
         else:
-            response=random.choice(sentences)
+            makesentence(1)
+    def check(sen_code):
+        com=a12.get()
+        if sen_code[0]=='1':
+            if sen_code[1]=='x':
+                response='hello, {}, How are you today?'.format(username)
+                print('var passed through check')
+        elif sen_code[0]=='2':
+            response='awww, thats too bad'
         history(com,response)
     def convo(*args):
         print("")
@@ -182,7 +184,7 @@ def makesentence(condition):
         n_or_pn=random.choice([rand_noun_1,rand_pronoun_1])
         response=(n_or_pn,rand_verb_1,rand_object)
 def entercheck(*args):
-    word.check()
+    word.codeit()
     a12.delete(0,END)
 root.bind('<Return>', entercheck)
 root.mainloop()
